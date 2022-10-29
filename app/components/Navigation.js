@@ -11,19 +11,27 @@ import { Nav, NavLink, Navbar, NavDropdown, Container } from "react-bootstrap"; 
 
 const Navigation = () => {
   return (
-        <Navbar bg="light" expand="lg" >
+        <Navbar bg="dark" expand="lg" variant="dark" >
           <Container>
             <Navbar.Brand as={Link} to='/'>Navigation</Navbar.Brand>
-            <Nav.Link as={Link} to='/link1' className="NavLink" >Link1</Nav.Link>
-            <Nav.Link as={Link} to='/link2' className="NavLink" >Link2</Nav.Link>
-            <Nav.Link as={Link} to='/link3' className="NavLink" >Link3</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to='/formyforms' >Action</NavDropdown.Item>
-                <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/stuffystuff' >Another action</NavDropdown.Item>
-                <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} to='/notanimeprofiles'>Something</NavDropdown.Item>
-            </NavDropdown>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Nav className="me-auto" variant="tabs" defaultActiveKey="/">
+
+              <Nav.Link eventKey='/' as={Link} to='/' className="NavLink" >Home</Nav.Link>
+              <Nav.Link eventKey='/link2' as={Link} to='/link2' className="NavLink" >Link2</Nav.Link>
+              <Nav.Link eventKey='/link3' as={Link} to='/link3' className="NavLink" >Link3</Nav.Link>
+
+              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                <NavDropdown.Item eventKey='/formyforms' as={Link} to='/formyforms' >Action</NavDropdown.Item>
+                <NavDropdown.Item eventKey='/stuffystuff' as={Link} to='/stuffystuff' >Another action</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                <NavDropdown.Item eventKey='/notanimeprofiles' as={Link} to='/notanimeprofiles'>notanimeprofiles</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav>
+              <Nav.Link as={Link} to='/link67' className="NavLink" >link67</Nav.Link>
+              <Nav.Link as={Link} to='/link4' className="NavLink" >link4</Nav.Link>
+            </Nav>
           </Container>
         </Navbar>
   )

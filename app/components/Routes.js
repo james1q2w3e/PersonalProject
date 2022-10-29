@@ -12,7 +12,7 @@ const Routes = () => {
       <div>
         <Navigation />
         <main>
-          <h1 className="" >Welcome to this page! (Routes.js)</h1>
+          <Home />
           {/* <Switch>
             <Route></Route>
             <Route></Route>
