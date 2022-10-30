@@ -15,6 +15,13 @@ app.use(express.urlencoded({ extended: true }))
 // you'll of course want static middleware so your browser can request things like your 'bundle.js'
 app.use(express.static(path.join(__dirname, '../public')))
 
+app.use('/api', require('./api')); // matches all requests to /api
+
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Any routes or other various middlewares should go here!
 // app.use('/api', require('./api')) // include our routes!  // ---------- TODO: SET UP API ROUTES
 
@@ -26,9 +33,15 @@ app.get('*', function (req, res, next) {
 });
 
 // error handling middleware
-app.use((err, req, res, next) => {
-  if (process.env.NODE_ENV !== 'test') console.error(err.stack)
-  res.status(err.status || 500).send(err.message || 'Internal server error')
+// app.use((err, req, res, next) => {
+//   if (process.env.NODE_ENV !== 'test') console.error(err.stack)
+//   res.status(err.status || 500).send(err.message || 'Internal server error')
+// })
+
+app.use(function (err, req, res, next) {
+  console.error(err);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.');
 })
 
 module.exports = app

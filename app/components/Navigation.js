@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { connect } from "react-redux";
 import { Nav, NavLink, Navbar, NavDropdown, Container } from "react-bootstrap"; // not efficient
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import Container from 'react-bootstrap/Container';
@@ -37,4 +38,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation;
+export default connect()(Navigation);
