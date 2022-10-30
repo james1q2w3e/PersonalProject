@@ -8,14 +8,26 @@ const db = require('./database');
 module.exports = db.define('user', {
   firstName: {
     type: Sequelize.STRING,
-    alloNull: false,
+    allowNull: false,
     validate: {
       notEmpty: true,
     }
   },
   lastName: {
     type: Sequelize.STRING,
-    alloNull: false,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
+  username: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true,
     }
