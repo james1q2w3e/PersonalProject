@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 const db = require('./database');
 
 
+// add a "karma" in here for the game?
+
 // user model
 module.exports = db.define('user', {
   firstName: {
