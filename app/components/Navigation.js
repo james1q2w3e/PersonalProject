@@ -31,7 +31,7 @@ const Navigation = () => {
             </Nav>
             <Nav>
               <Nav.Link as={Link} to='/link67' className="NavLink" >link67</Nav.Link>
-              <Nav.Link as={Link} to='/link4' className="NavLink" >link4</Nav.Link>
+              <Nav.Link as={Link} to='/signin' className="NavLink" >Sign In</Nav.Link>
             </Nav>
           </Container>
         </Navbar>

@@ -16,6 +16,77 @@ import appReducer from './redux'; // my reducer
 //   middleware = [...middleware, createLogger({ collapsed: true })]
 // }
 
+
+
+// const TOKEN = 'token';
+
+// // ACTION types
+// const SET_AUTH = 'SET_AUTH';
+
+// // ACTION creators
+// const setAuth = (auth) => {
+//   return {
+//     type: SET_AUTH,
+//     auth,
+//   }
+// }
+
+// // THUNK creators
+// // attemptLogin
+// export const me = () => {
+//   return async (dispatch) => {
+//     try {
+//       const token = window.localStorage.getItem(TOKEN);
+//       if(token) {
+//         const res = await axios.get('/auth/me', {
+//           headers: {
+//             authorization: token
+//           }
+//         })
+//         return dispatch(setAuth(res.data))
+//       }
+//     } catch(e) {
+//       console.log(e);
+//     }
+//   }
+// }
+
+// // signIn
+// export const authenticate = (username, password, method) => {
+//   return async (dispatch) => {
+//     try {
+//       const res = await axios.post(`/auth/${method}`, {username, password})
+//       window.localStorage.setItem(TOKEN, res.data.token)
+//       dispatch(me())
+//     } catch(authError) {
+//       return dispatch(setAuth({error: authError}))
+//     }
+//   }
+// }
+
+// export const logout = () => {
+//   window.localStorage.removeItem(TOKEN)
+//   history.pushState('/login')
+//   return {
+//     type: SET_AUTH,
+//     auth: {},
+//   }
+// }
+
+// // REDUCER
+// export function authReducer(state = {}, action) {
+//   switch(action.type) {
+//     case SET_AUTH:
+//       return action.auth
+//     default:
+//       return state
+//   }
+// }
+
+
+
+
+
 const store = createStore(
   appReducer,
   applyMiddleware(
